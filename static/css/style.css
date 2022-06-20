@@ -46,16 +46,22 @@ body {
 }
 
 .panel {
-    border-color: #;
+    border-color: #ac7d75;
     -webkit-filter: drop-shadow(0px 2px 3px #8dabc3);
     filter: drop-shadow(0px 2px 3px #8dabc3);
+    background-color: #c89c8f;
+}
+
+#selDataset {
+    background-color: #8dabc3;
+    border:1px, #5b565a;
+    color: #5b565a;
 }
 
 #panel-header {
-    background-color: #c89c8f;
     padding: 10px;
     color: #ffbe8a;
-    text-shadow: 1px 1px 1px #ac7d75;
+    text-shadow: 1px 1px 4px #5e6f7d;
 }
 
 #sample-metadata table {
@@ -77,6 +83,7 @@ body {
     text-align: left;
     padding-left: 5px;
 }
+
 
 color_palette {
 
