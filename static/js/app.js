@@ -24,12 +24,22 @@ function optionChanged(val) {
 
         console.log(sample[0].otu_ids)
 
+        // Demographics input
+        demographic(metadata[0]);
+
         // Build graphs?
     });
 }
 
-// d3.selectAll("#selDataset").on("change", getData);
+function demographic(data) {
+    let div = d3.select("#sample-metadata");
+    let table = div.select("table");
+    table.html("");
 
-// function getData() {
-    
-// }
+    Object.entries(data).forEach(([k, v]) => {
+        let row = table.append("tr");
+        row.append("td").text(k);
+        row.append("td").text(v);
+    });
+}
+demographic(data);
