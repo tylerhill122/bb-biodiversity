@@ -1,4 +1,4 @@
-const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
+const url = "samples.json";
 
 d3.json(url).then((data) => { 
     console.log(data);
@@ -19,10 +19,11 @@ function optionChanged(val) {
         let metadata = data.metadata.filter(data => data.id == val);
         console.log(metadata);
 
+        let firstSample = data.metadata.filter(data => data.id == 940)
+        console.log(firstSample)
+
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
-
-        console.log(sample[0].otu_ids)
 
         // Demographics input
         demographic(metadata[0]);
@@ -38,8 +39,7 @@ function demographic(data) {
 
     Object.entries(data).forEach(([k, v]) => {
         let row = table.append("tr");
-        row.append("td").text(k);
-        row.append("td").text(v);
+        row.append("td").text(k + ":").attr("class", "key");
+        row.append("td").text(v).attr("class", "value");
     });
 }
-demographic(data);
