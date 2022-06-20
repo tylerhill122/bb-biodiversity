@@ -22,6 +22,8 @@ function optionChanged(val) {
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
 
+        console.log(sample[0].otu_ids)
+
         // Build graphs?
     });
 }
