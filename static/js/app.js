@@ -3,13 +3,31 @@ const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/
 d3.json(url).then((data) => { 
     console.log(data);
     let names = data.names;
-    names.forEach((name) => {
-        d3.select("#selDataset").append("option").text(name);
-    })
+    d3.select("#selDataset")
+        .selectAll("option")
+        .data(names)
+        .enter()
+        .append("option")
+        .text(d=>d)
+        .attr("val", d=>d);
+
+    optionChanged(d3.select("#selDataset").property("val"));
 });
 
-d3.selectAll("#selDataset").on("change", getData);
+function optionChanged(val) {
+    d3.json(url).then((data) => {
+        let metadata = data.metadata.filter(data => data.id == val);
+        console.log(metadata);
 
-function getData() {
-    
+        let sample = data.samples.filter(data => data.id == val);
+        console.log(sample);
+
+        // Build graphs?
+    });
 }
+
+// d3.selectAll("#selDataset").on("change", getData);
+
+// function getData() {
+    
+// }
