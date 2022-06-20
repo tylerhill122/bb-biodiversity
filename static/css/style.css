@@ -4,7 +4,6 @@ body {
 }
 
 .header {
-    /* background-color: #8dabc3; */
     background: -webkit-linear-gradient(135deg, #ac7d75, #8dabc3);
     margin-top:20px;
     margin-left:10px;
@@ -29,11 +28,10 @@ body {
 
 .jumbotron {
     background: #8dabc3;
-    /* background: -webkit-radial-gradient(#ac7d75, #8dabc3); */
 }
 
+/* color_palette {
 
-h{
 color: #ffffce;
 
 color: #c89c8f;
@@ -52,6 +50,4 @@ color: #ac7d75;
 
 color: #c1cdc9;
 
-
-}
-
+} */
