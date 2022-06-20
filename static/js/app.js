@@ -5,3 +5,9 @@ d3.json(url).then(function(data){
     let names = data.names;
     console.log(names)
 });
+
+d3.selectAll("#selDataset").on("change", getData);
+
+function getData() {
+    
+}
