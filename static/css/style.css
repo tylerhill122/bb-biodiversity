@@ -2,3 +2,23 @@ body {
     background-color: #ffffce;
     color: #8dabc3;
 }
+
+.github {
+    background-color: #8dabc3;
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+    padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.github img {
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+    opacity: 0.5;
+}
+
+.github img:hover {
+    opacity: 1;
+}
