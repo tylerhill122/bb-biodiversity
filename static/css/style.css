@@ -50,17 +50,27 @@ body {
     -webkit-filter: drop-shadow(0px 2px 3px #8dabc3);
     filter: drop-shadow(0px 2px 3px #8dabc3);
     background-color: #c89c8f;
+    
 }
 
 #selDataset {
     background-color: #8dabc3;
     border:1px, #5b565a;
     color: #5b565a;
+    padding:5px;
+    margin:10px;
+}
+
+.panel h5 {
+    color: #ffbe8a;
+    text-shadow: 1px 1px 4px #5e6f7d;
+    padding: 10px;
 }
 
 #panel-header {
     padding: 10px;
     color: #ffbe8a;
+    background-color: #c89c8f;
     text-shadow: 1px 1px 4px #5e6f7d;
 }
 
