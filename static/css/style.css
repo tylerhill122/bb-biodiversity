@@ -33,7 +33,14 @@ body {
 }
 
 .jumbotron {
-    background: #8dabc3;
+    background: radial-gradient(ellipse at bottom, #8dabc3 0%, #5e6f7d 100%);
+    overflow: hidden;
+    padding:10px;
+}
+
+.jumbotron h2 {
+    color:#c89c8f;
+
 }
 
 #demo {
