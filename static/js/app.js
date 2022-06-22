@@ -22,17 +22,24 @@ function optionChanged(val) {
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
 
+        // pinpointing info needed for hBar graph
         let sampleValues = sample[0].sample_values.slice(0,10).reverse();
         let otuIds = sample[0].otu_ids.slice(0,10).reverse().map(a=>"OTU: "+ a);
         let labels = sample[0].otu_labels.slice(0,10).reverse();
 
+        // pinpointing info needed for gauge graph
+        let wFreq = metadata[0].wfreq;
+
         // Demographics input
         demographic(metadata[0]);
 
-        // Build graphs?
+        // horizontal bar graph
         hBar(sampleValues, otuIds, labels);
+
+        // gauge bar
+        gauge(wFreq);
     });
-}
+};
 
 function hBar(s, o, l) {
     var data = [{
@@ -52,10 +59,24 @@ function hBar(s, o, l) {
         paper_bgcolor:"#8dabc3",
       };
 
-    let barBody = d3.select("#bar-body");
-    barBody.html("");
     Plotly.newPlot('bar-body', data, layout);
-}
+};
+
+function gauge(values) {
+    var data = [
+        {
+            domain: { x: [0, 1], y: [0, 1] },
+            value: values,
+            title: "Washing Frequency",
+            type: "indicator",
+            mode: "gauge+number"
+        }
+    ];
+    
+    var layout = { width: 400, height: 400, margin: { t: 0, b: 0 } };
+
+    Plotly.newPlot('gauge', data, layout);
+};
 
 function demographic(data) {
     let div = d3.select("#sample-metadata");
