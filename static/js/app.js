@@ -48,14 +48,13 @@ function hBar(s, o, l) {
     }];
 
     var layout = {
-        title: "Top 10 OTU for each Test Subject",
         plot_bgcolor:"#c2d2d2",
         paper_bgcolor:"#8dabc3",
       };
 
-    let bar = d3.select("#bar")
-    bar.html("");
-    Plotly.newPlot('bar', data, layout);
+    let barBody = d3.select("#bar-body");
+    barBody.html("");
+    Plotly.newPlot('bar-body', data, layout);
 }
 
 function demographic(data) {
