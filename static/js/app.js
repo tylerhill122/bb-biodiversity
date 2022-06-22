@@ -69,3 +69,6 @@ function demographic(data) {
         row.append("td").text(v).attr("class", "value");
     });
 }
+
+// display first value (sample ID 940)
+optionChanged(940);
