@@ -72,9 +72,18 @@ function gauge(values) {
             mode: "gauge+number",
             gauge: {
                 axis: { range: [null, 10] },
+                bar: { color: "#c2d2d2" },
                 steps: [
-                  { range: [0, 1], color: "lightgray" },
-                  { range: [1, 2], color: "gray" }
+                  { range: [0, 1], color: "#8dabc3" },
+                  { range: [1, 2], color: "#9cadbd" },
+                  { range: [2, 3], color: "#a8afb8" },
+                  { range: [3, 4], color: "#b2b0b4" },
+                  { range: [4, 5], color: "#bbb2b0" },
+                  { range: [5, 6], color: "#c5b3ab" },
+                  { range: [6, 7], color: "#d0b5a5" },
+                  { range: [7, 8], color: "#dcb89f" },
+                  { range: [8, 9], color: "#eaba97" },
+                  { range: [9, 10], color: "#fbbd8d" },
                 ],
               }
         }];
