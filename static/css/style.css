@@ -112,6 +112,11 @@ body {
     background-color: #c89c8f;
     text-shadow: 1px 1px 4px #5e6f7d;
     text-align: center;
+    padding: 15px;
+}
+
+#bar-body {
+    margin-top:20px;
 }
 
 color_palette {
