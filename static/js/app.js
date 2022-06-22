@@ -69,9 +69,15 @@ function gauge(values) {
             value: values,
             title: "Washing Frequency",
             type: "indicator",
-            mode: "gauge+number"
-        }
-    ];
+            mode: "gauge+number",
+            gauge: {
+                axis: { range: [null, 10] },
+                steps: [
+                  { range: [0, 1], color: "lightgray" },
+                  { range: [1, 2], color: "gray" }
+                ],
+              }
+        }];
     
     var layout = { width: 400, height: 400, margin: { t: 0, b: 0 } };
 
