@@ -30,7 +30,26 @@ function optionChanged(val) {
         demographic(metadata[0]);
 
         // Build graphs?
+        hBar(sampleValues, otuIds, labels);
     });
+}
+
+function hBar(s, o, l) {
+    var data = [{
+        type: 'bar',
+        orientation: 'h',
+        x: s,
+        y: o,
+        text: l
+    }];
+
+    var layout = {
+        title: "Top 10 OTU for each Test Subject"
+      };
+
+    let bar = d3.select("#bar")
+    bar.html("");
+    Plotly.newPlot('bar', data, layout);
 }
 
 function demographic(data) {
