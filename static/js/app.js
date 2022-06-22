@@ -19,11 +19,12 @@ function optionChanged(val) {
         let metadata = data.metadata.filter(data => data.id == val);
         console.log(metadata);
 
-        let firstSample = data.metadata.filter(data => data.id == 940)
-        console.log(firstSample)
-
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
+
+        let sampleValues = sample[0].sample_values.slice(0,10).reverse();
+        let otuIds = sample[0].otu_ids.slice(0,10).reverse().map(a=>"OTU "+ a);
+        let labels = sample[0].otu_labels.slice(0,10).reverse();
 
         // Demographics input
         demographic(metadata[0]);
