@@ -23,7 +23,7 @@ function optionChanged(val) {
         console.log(sample);
 
         let sampleValues = sample[0].sample_values.slice(0,10).reverse();
-        let otuIds = sample[0].otu_ids.slice(0,10).reverse().map(a=>"OTU "+ a);
+        let otuIds = sample[0].otu_ids.slice(0,10).reverse().map(a=>"OTU: "+ a);
         let labels = sample[0].otu_labels.slice(0,10).reverse();
 
         // Demographics input
@@ -40,11 +40,17 @@ function hBar(s, o, l) {
         orientation: 'h',
         x: s,
         y: o,
-        text: l
+        text: l,
+        marker: {
+            color: '#ac7d75',
+            width: 1
+          }
     }];
 
     var layout = {
-        title: "Top 10 OTU for each Test Subject"
+        title: "Top 10 OTU for each Test Subject",
+        plot_bgcolor:"#c2d2d2",
+        paper_bgcolor:"#8dabc3",
       };
 
     let bar = d3.select("#bar")
