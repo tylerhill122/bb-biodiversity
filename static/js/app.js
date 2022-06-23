@@ -71,8 +71,8 @@ function gauge(values) {
             type: "indicator",
             mode: "gauge+number",
             gauge: {
-                axis: { range: [null, 10] },
-                bar: { color: "#c2d2d2" },
+                axis: { range: [null, 9] },
+                bar: { color: "#FFF" },
                 steps: [
                   { range: [0, 1], color: "#8dabc3" },
                   { range: [1, 2], color: "#9cadbd" },
@@ -83,12 +83,17 @@ function gauge(values) {
                   { range: [6, 7], color: "#d0b5a5" },
                   { range: [7, 8], color: "#dcb89f" },
                   { range: [8, 9], color: "#eaba97" },
-                  { range: [9, 10], color: "#fbbd8d" },
                 ],
               }
         }];
     
-    var layout = { width: 400, height: 400, margin: { t: 0, b: 0 } };
+    var layout = { 
+        width: 400,
+        height: 400,
+        margin: { t: 0, b: 0 },
+        plot_bgcolor: "rgba(0,0,0,0)",
+        paper_bgcolor: "rgba(0,0,0,0)"
+    };
 
     Plotly.newPlot('gauge', data, layout);
 };
@@ -103,7 +108,7 @@ function demographic(data) {
         row.append("td").text(k + ":").attr("class", "key");
         row.append("td").text(v).attr("class", "value");
     });
-}
+};
 
 // display first value (sample ID 940)
 optionChanged(940);
