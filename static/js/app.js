@@ -64,20 +64,24 @@ function hBar(s, o, l) {
         y: o,
         text: l,
         marker: {
-            color: '#ac7d75',
+            color: '#8dabc3',
             width: 1
           }
     }];
 
     var layout = {
-        plot_bgcolor:"#c2d2d2",
-        paper_bgcolor:"#8dabc3",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        paper_bgcolor: "rgba(0,0,0,0)",
         margin: {
-            l: 75,
+            l: 90,
             r: 30,
             t: 30,
             b: 30,
-          }
+          },
+        font: {
+            size: 12,
+            color: "#5b565a"
+        }
       };
 
     Plotly.newPlot('bar-body', data, layout);

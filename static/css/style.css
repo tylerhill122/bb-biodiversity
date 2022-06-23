@@ -61,7 +61,7 @@ body {
 }
 
 #selDataset {
-    background-color: #8dabc3;
+    background-color: #c2d2d2;
     border:1px, #5b565a;
     color: #5b565a;
     padding:5px;
@@ -112,6 +112,7 @@ body {
     padding:0px;
     display:contents;
     justify-content: center;
+    border-color: #ac7d75;
 }
 
 #bar-header {
@@ -120,15 +121,32 @@ body {
     text-shadow: 1px 1px 4px #5e6f7d;
     text-align: center;
     padding: 15px;
+    border-radius: 5px;
 }
 
 #bar-body {
     margin-top:20px;
+    border-radius: 5px;
+    margin:10px;
+    background-color: #c2d2d2;
+    color:#5e6f7d;
 }
 
 #bubble {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top:30px;
+    border-radius: 5px;
+    background: radial-gradient(ellipse at bottom, #8dabc3 0%, #5e6f7d 100%);
+    overflow: hidden;
+}
+
+.footer {
+    background: -webkit-linear-gradient(45deg, #ac7d75, #8dabc3);
+    margin-top:30px;
+    margin-left:10px;
+    margin-right:10px;
+    padding: 35px;
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom:30px;
 }
 
 color_palette {
