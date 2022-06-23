@@ -1,5 +1,6 @@
 const url = "samples.json";
 
+// grab data to build drop down menu
 d3.json(url).then((data) => { 
     console.log(data);
     let names = data.names;
@@ -14,6 +15,7 @@ d3.json(url).then((data) => {
     optionChanged(d3.select("#selDataset").property("val"));
 });
 
+// master function to grab data and display charts based on value input
 function optionChanged(val) {
     d3.json(url).then((data) => {
         let metadata = data.metadata.filter(data => data.id == val);
@@ -21,26 +23,35 @@ function optionChanged(val) {
 
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
+        
+        // pinpointing info needed for hBar graph and bubble chart
+        let sampleValues = sample[0].sample_values;
+        let otuIds = sample[0].otu_ids;
+        let labels = sample[0].otu_labels
 
-        // pinpointing info needed for hBar graph
-        let sampleValues = sample[0].sample_values.slice(0,10).reverse();
-        let otuIds = sample[0].otu_ids.slice(0,10).reverse().map(a=>"OTU: "+ a);
-        let labels = sample[0].otu_labels.slice(0,10).reverse();
+        // make the above values Top10 and sorted
+        let sV10 = sampleValues.slice(0,10).reverse()
+        let otu10 = otuIds.slice(0,10).reverse().map(a=>"OTU: "+ a)
+        let labels10 = labels.slice(0,10).reverse();
 
         // pinpointing info needed for gauge graph
         let wFreq = metadata[0].wfreq;
 
-        // Demographics input
+        // demographics input
         demographic(metadata[0]);
 
         // horizontal bar graph
-        hBar(sampleValues, otuIds, labels);
+        hBar(sV10, otu10, labels10);
 
         // gauge bar
         gauge(wFreq);
+
+        // bubble chart
+        bubble(sampleValues, otuIds, labels);
     });
 };
 
+// function to build horizontal bar chart with Top10 OTU for each test subject
 function hBar(s, o, l) {
     var data = [{
         type: 'bar',
@@ -57,11 +68,40 @@ function hBar(s, o, l) {
     var layout = {
         plot_bgcolor:"#c2d2d2",
         paper_bgcolor:"#8dabc3",
+        margin: {
+            l: 75,
+            r: 30,
+            t: 30,
+            b: 30,
+          }
       };
 
     Plotly.newPlot('bar-body', data, layout);
 };
 
+// function to build bubble chart
+function bubble(s, o, l) {
+    var data = [{
+        type: "scatter",
+        mode: "markers",
+        x: o,
+        y: s,
+        text: l,
+        marker: {
+            size: s,
+            color: o
+        }
+    }];
+
+    var layout = {
+        plot_bgcolor:"#c2d2d2",
+        paper_bgcolor:"#8dabc3",
+    };
+
+    Plotly.newPlot('bubble', data, layout);
+};
+
+// function to build gauge chart with washing frequency
 function gauge(values) {
     var data = [
         {
@@ -98,6 +138,7 @@ function gauge(values) {
     Plotly.newPlot('gauge', data, layout);
 };
 
+// function to build demographic table
 function demographic(data) {
     let div = d3.select("#sample-metadata");
     let table = div.select("table");
