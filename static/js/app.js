@@ -1,9 +1,10 @@
 const url = "samples.json";
 
-// grab data to build drop down menu
+// grab data to build dropdown menu
 d3.json(url).then((data) => { 
     console.log(data);
     let names = data.names;
+    // providing a list of IDs (names) to be selected from dropdown menu
     d3.select("#selDataset")
         .selectAll("option")
         .data(names)
@@ -18,25 +19,28 @@ d3.json(url).then((data) => {
 // master function to grab data and display charts based on value input
 function optionChanged(val) {
     d3.json(url).then((data) => {
+        // grabbing metadata, filtered by dropdown menu
         let metadata = data.metadata.filter(data => data.id == val);
         console.log(metadata);
 
+        // grabbing sample info from data
         let sample = data.samples.filter(data => data.id == val);
         console.log(sample);
         
         // pinpointing info needed for hBar graph and bubble chart
         let sampleValues = sample[0].sample_values;
         let otuIds = sample[0].otu_ids;
-        let labels = sample[0].otu_labels
+        let labels = sample[0].otu_labels;
 
-        // make the above values Top10 and sorted
-        let sV10 = sampleValues.slice(0,10).reverse()
-        let otu10 = otuIds.slice(0,10).reverse().map(a=>"OTU: "+ a)
+        // make the above values Top10 and sorted for hBar
+        let sV10 = sampleValues.slice(0,10).reverse();
+        let otu10 = otuIds.slice(0,10).reverse().map(a=>"OTU: "+ a);
         let labels10 = labels.slice(0,10).reverse();
 
         // pinpointing info needed for gauge graph
         let wFreq = metadata[0].wfreq;
 
+        // run chart functions //
         // demographics input
         demographic(metadata[0]);
 
@@ -87,6 +91,12 @@ function bubble(s, o, l) {
         x: o,
         y: s,
         text: l,
+        margin: {
+            l: 10,
+            r: 10,
+            t: 10,
+            b: 10
+        },
         marker: {
             size: s,
             color: o
@@ -94,8 +104,8 @@ function bubble(s, o, l) {
     }];
 
     var layout = {
-        plot_bgcolor:"#c2d2d2",
-        paper_bgcolor:"#8dabc3",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        paper_bgcolor: "rgba(0,0,0,0)"
     };
 
     Plotly.newPlot('bubble', data, layout);

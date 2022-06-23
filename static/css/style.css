@@ -126,6 +126,11 @@ body {
     margin-top:20px;
 }
 
+#bubble {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 color_palette {
 
 color: #ffffce;
