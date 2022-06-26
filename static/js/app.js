@@ -77,7 +77,7 @@ function hBar(s, o, l) {
             r: 30,
             t: 30,
             b: 30,
-          },
+            },
         font: {
             size: 12,
             color: "#5b565a"
@@ -109,7 +109,34 @@ function bubble(s, o, l) {
 
     var layout = {
         plot_bgcolor: "rgba(0,0,0,0)",
-        paper_bgcolor: "rgba(0,0,0,0)"
+        paper_bgcolor: "rgba(0,0,0,0)",
+        title: {
+            text: 'Sample Size for each OTU ID',
+            font: {
+                family: 'Courier New, monospace',
+                size: 24
+            },
+            xref: 'paper',
+            x: 0.05,
+        },
+        xaxis: {
+            title: {
+                text: 'OTU IDs',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                }
+            },
+        },
+        yaxis: {
+            title: {
+                text: 'Number of Samples',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                }
+            },
+        },
     };
 
     Plotly.newPlot('bubble', data, layout);
