@@ -21,11 +21,11 @@ function optionChanged(val) {
     d3.json(url).then((data) => {
         // grabbing metadata, filtered by dropdown menu
         let metadata = data.metadata.filter(data => data.id == val);
-        console.log(metadata);
+        // console.log(metadata);
 
         // grabbing sample info from data
         let sample = data.samples.filter(data => data.id == val);
-        console.log(sample);
+        // console.log(sample);
         
         // pinpointing info needed for hBar graph and bubble chart
         let sampleValues = sample[0].sample_values;
@@ -148,6 +148,11 @@ function gauge(values) {
         plot_bgcolor: "rgba(0,0,0,0)",
         paper_bgcolor: "rgba(0,0,0,0)"
     };
+
+    if ( values > 6 ) {
+        console.log("yay!")
+        party.confetti(partyGauge);
+    }
 
     Plotly.newPlot('gauge', data, layout);
 };
