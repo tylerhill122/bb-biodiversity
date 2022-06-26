@@ -16,8 +16,22 @@ function gender(input) {
 
         let dS = data.samples;
 
-        let men = dS.filter(data => data.id == '940');
-        console.log(men);
+        let sampleValues = [];
+        let otuIds = [];
+        let labels = [];
+
+        gender.forEach(function (gen, index, arr) {
+            dS.forEach(function (sample, i, arr) {
+                if (gen == sample.id) {
+                    sampleValues.push(sample.sample_values)
+                    otuIds.push(sample.otu_ids)
+                    labels.push(sample.otu_labels)
+                }
+            });
+        });
+        console.log(sampleValues);
+        console.log(otuIds);
+        console.log(labels);
 
     });
 
