@@ -12,14 +12,17 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 1. Use D3.js library to read in samples.json file
 2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in each individual.
-
-![Horizontal Bar Chart](static/images/readme-img/hbar.png)
+<p align="center">
+<img src="static/images/readme-img/hbar.png">
+</p>
 
 3. Create a bubble chart to display each OTU and their representation.
 
 4. Display the sample metadata, i.e., an individual's demographic information.
 
-![Demographic Display](static/images/readme-img/demo.png)
+<p align="center">
+<img src="static/images/readme-img/demo.png">
+</p>
 
 5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
